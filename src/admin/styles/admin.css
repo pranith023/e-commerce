@@ -1,0 +1,448 @@
+@import url('https://fonts.googleapis.com/css2?family=Italiana&family=Manrope:wght@300;400;500;600;700&display=swap');
+
+/* Scope strictly to Admin to prevent storefront leakage */
+#admin-root {
+  font-family: 'Manrope', sans-serif;
+  background: #fcfcfc;
+  color: #111;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+#admin-root * { box-sizing: border-box; margin: 0; padding: 0; }
+
+#admin-root #admin-app { display: flex; height: 100%; width: 100%; }
+#admin-root .admin-wrapper { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+
+/* === Premium Black Sidebar === */
+#admin-root aside { 
+  width: 260px; min-width: 260px; 
+  background: #000; color: #fff; 
+  display: flex; flex-direction: column; 
+  z-index: 1000; height: 100vh; 
+}
+#admin-root .sidebar-brand { 
+  height: 80px; min-height: 80px; 
+  display: flex; align-items: center; 
+  padding: 0 2rem; color: #fff; 
+  font-family: 'Italiana', serif; font-size: 1.5rem; letter-spacing: 1px;
+  border-bottom: 1px solid rgba(255,255,255,0.1); 
+}
+#admin-root .sidebar-nav { flex: 1; padding: 2rem 0; overflow-y: auto; display: flex; flex-direction: column; gap: 0.5rem; }
+#admin-root .nav-item { 
+  display: flex; align-items: center; padding: 1rem 2rem; 
+  color: #888; text-decoration: none; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;
+  font-weight: 500; transition: all 0.3s ease;
+}
+#admin-root .nav-item:hover { background: rgba(255,255,255,0.05); color: #fff; border-left: 3px solid #fff;}
+#admin-root .nav-item.active { color: #fff; font-weight: 600; border-left: 3px solid #fff; }
+#admin-root .nav-icon { margin-right: 15px; font-size: 1.1rem; }
+#admin-root .sidebar-footer { padding: 2rem; border-top: 1px solid rgba(255,255,255,0.1); margin-top: auto;}
+#admin-root .btn-logout { background: none; border: none; color: #ff4444; cursor: pointer; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; width: 100%; text-align: left; }
+
+/* === Header (Profile moved to Right, Center Heading) === */
+#admin-root header { 
+  height: 80px; min-height: 80px; background: #fff; 
+  border-bottom: 1px solid #eee; display: flex; 
+  align-items: center; justify-content: space-between; 
+  padding: 0 2rem; z-index: 100;
+}
+
+/* === Main Dashboard Area === */
+#admin-root main { flex: 1; overflow-y: auto; padding: 3rem 4rem; }
+#admin-root h1, #admin-root h2, #admin-root h3 { font-family: 'Italiana', serif; text-transform: uppercase; font-weight: 400; color: #000; }
+#admin-root .page-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem; }
+#admin-root .page-header h1 { font-size: 2.5rem; }
+
+/* === Panels & KPIs === */
+#admin-root .panel { 
+  background: #fff; padding: 2.5rem; 
+  border: 1px solid #eee; border-radius: 0; 
+}
+#admin-root .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; margin-bottom: 3rem; }
+#admin-root .kpi-card { 
+  background: #fff; padding: 2rem; 
+  border: 1px solid #eee; border-radius: 0; 
+}
+#admin-root .kpi-label { display: block; font-size: 0.75rem; color: #888; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem; }
+#admin-root .kpi-value { font-size: 2.5rem; font-family: 'Manrope', sans-serif; font-weight: 300; color: #000; letter-spacing: -1px; }
+
+/* === Buttons === */
+#admin-root .btn { 
+  padding: 1rem 2rem; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;
+  cursor: pointer; transition: all 0.3s ease; 
+  border: 1px solid #000; background: transparent; color: #000; 
+}
+#admin-root .btn:hover { background: #000; color: #fff; }
+#admin-root .btn-primary { background: #000; color: #fff; }
+#admin-root .btn-primary:hover { background: transparent; color: #000; }
+#admin-root .action-btn { background: none; border: none; font-size: 0.85rem; cursor: pointer; color: #000; text-decoration: underline; font-weight: 600; }
+
+/* === Data Tables === */
+#admin-root .data-table-container { 
+  background: #fff; border: 1px solid #eee; overflow-x: auto; 
+  -webkit-overflow-scrolling: touch; /* Smooth scroll on iOS */
+}
+#admin-root .data-table { width: 100%; border-collapse: collapse; text-align: left; }
+#admin-root .data-table th { padding: 1.5rem 2rem; font-size: 0.75rem; text-transform: uppercase; font-weight: 600; color: #888; border-bottom: 1px solid #eee; background: #fafafa; letter-spacing: 1px; }
+#admin-root .data-table td { padding: 1.5rem 2rem; font-size: 0.95rem; border-bottom: 1px solid #f9f9f9; vertical-align: middle; }
+
+/* === Badges === */
+#admin-root .badge { padding: 0.4rem 0.8rem; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; border-radius: 2px;}
+#admin-root .badge-green { background: #e6f4ea; color: #1e8e3e; }
+#admin-root .badge-gray { background: #f1f3f4; color: #5f6368; }
+
+/* === Forms === */
+#admin-root .admin-form { display: grid; gap: 1.5rem; }
+#admin-root .input-group label { display: block; font-size: 0.75rem; color: #888; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; }
+#admin-root .input-group input, #admin-root .input-group select { 
+  width: 100%; padding: 1rem; border: 1px solid #eee; 
+  font-family: 'Manrope', sans-serif; font-size: 0.95rem; 
+  color: #000; transition: border-color 0.3s; background: #fff; border-radius: 0;
+}
+#admin-root .input-group input:focus, #admin-root .input-group select:focus { outline: none; border-color: #000; }
+
+/* Mobile Toggle */
+#admin-root .mobile-toggle { display: none; background: none; border: none; font-size: 1.8rem; color: #000; cursor: pointer; }
+@media (max-width: 1024px) { 
+  #admin-root .mobile-toggle { display: block; } 
+  #admin-root aside { position: absolute; top: 0; left: 0; transform: translateX(-100%); transition: 0.3s;} 
+  #admin-root aside.mobile-active { transform: translateX(0); box-shadow: 10px 0 25px rgba(0,0,0,0.1); } 
+}
+
+/* Hide scrollbar for Sidebar but allow scrolling */
+#admin-root .sidebar-nav {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+#admin-root .sidebar-nav::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+
+/* =========================================
+   AGGRESSIVE MOBILE FIXES (DIRECT TARGETING)
+   ========================================= */
+
+@media (max-width: 768px) {
+    /* 1. Reclaim dead screen space by reducing the massive side padding */
+    #admin-root main {
+        padding: 1.5rem 1rem !important; 
+    }
+
+    /* 2. Fix Header Collision: Stack Title and Button vertically */
+    #admin-root .page-header {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 1.2rem !important;
+        margin-bottom: 2rem !important;
+    }
+    
+    /* Make the button stretch fully across the screen */
+    #admin-root .page-header .btn {
+        width: 100% !important;
+        text-align: center !important;
+    }
+
+    /* 3. Pull tables to the very edge of the screen */
+    #admin-root .data-table-container {
+        margin-left: -1rem !important; /* Matches main padding */
+        margin-right: -1rem !important; 
+        width: calc(100% + 2rem) !important;
+        border-radius: 0 !important;
+        border-left: none !important;
+        border-right: none !important;
+    }
+
+    /* 4. Force a minimum width on the table so it scrolls instead of squishing */
+    #admin-root .data-table {
+        min-width: 700px !important;
+    }
+
+    /* 5. Stat cards stack cleanly */
+    #admin-root .kpi-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+    }
+}
+
+/* =========================================
+   AGGRESSIVE MOBILE FIXES (DIRECT TARGETING)
+   ========================================= */
+
+@media (max-width: 768px) {
+    /* 1. Prevent the whole screen from swiping left/right accidentally */
+    #admin-root {
+        overflow-x: hidden !important;
+    }
+
+    #admin-root main {
+        padding: 1.5rem 1rem !important; 
+        overflow-x: hidden !important;
+        width: 100vw !important;
+    }
+
+    /* 2. Fix Sliced Titles & Overlapping Buttons */
+    #admin-root .page-header {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 1.2rem !important;
+        margin-bottom: 2rem !important;
+        height: auto !important; /* Stops text slicing */
+    }
+    
+    #admin-root .page-header h1 {
+        line-height: 1.2 !important;
+        margin: 0 !important;
+        width: 100% !important;
+    }
+
+    #admin-root .page-header .btn {
+        width: 100% !important;
+        text-align: center !important;
+    }
+
+    /* 3. FORCE ALL FORMS TO 1 COLUMN (The core fix for your screenshot) */
+    #admin-root form > div,
+    #admin-root .admin-form,
+    #admin-root form [style*="grid"],
+    #admin-root form [style*="flex"] {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 1rem !important;
+    }
+
+    /* 4. Keep inputs from bleeding off the edge */
+    #admin-root .input-group,
+    #admin-root .input-group input,
+    #admin-root .input-group select,
+    #admin-root .input-group textarea {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 5. Contain the white panels safely */
+    #admin-root .panel {
+        padding: 1.5rem 1rem !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 6. Pull tables to the edge of the screen */
+    #admin-root .data-table-container {
+        margin-left: -1rem !important; 
+        margin-right: -1rem !important; 
+        width: calc(100% + 2rem) !important;
+        border-radius: 0 !important;
+        border-left: none !important;
+        border-right: none !important;
+    }
+
+    #admin-root .data-table {
+        min-width: 700px !important;
+    }
+
+    /* 7. Stat cards stack cleanly */
+    #admin-root .kpi-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+    }
+}
+
+/* =========================================
+   HIGH-END PREMIUM DASHBOARD (HEAVY UI)
+   ========================================= */
+
+/* Set a soft premium background to make the white cards pop */
+#admin-root {
+    background-color: #f4f5f7 !important;
+}
+
+.vg-dashboard {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+    padding-bottom: 2rem;
+}
+
+/* Heavy, Polished Premium Cards */
+.vg-card {
+    background: #ffffff;
+    border: none !important;
+    border-radius: 24px !important; /* Soft, modern corners */
+    padding: 2.5rem !important; /* Deep, spacious padding */
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.02) !important;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.vg-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.06), 0 8px 16px rgba(0, 0, 0, 0.03) !important;
+}
+
+.vg-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.vg-card-title {
+    font-family: 'Manrope', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 800;
+    letter-spacing: -0.3px;
+    color: #111;
+}
+
+/* Row 1: KPI Stats */
+.vg-kpi-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.vg-kpi-value {
+    font-size: 3.5rem;
+    font-weight: 300;
+    font-family: 'Manrope', sans-serif;
+    color: #000;
+    letter-spacing: -1.5px;
+    line-height: 1;
+}
+
+/* Premium Pills for Trends */
+.vg-trend {
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 8px 16px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+}
+.vg-trend.up { background: rgba(30, 142, 62, 0.08); color: #1e8e3e; }
+.vg-trend.down { background: rgba(217, 48, 37, 0.08); color: #d93025; }
+
+/* Grid Layouts */
+.vg-middle-row {
+    display: grid;
+    grid-template-columns: 2.5fr 1fr;
+    gap: 2rem;
+}
+
+.vg-bottom-row {
+    display: grid;
+    grid-template-columns: 2.5fr 1fr;
+    gap: 2rem;
+}
+
+/* Chart Details */
+.vg-css-donut {
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    display: flex; justify-content: center; align-items: center;
+    margin: 2rem auto;
+    box-shadow: inset 0 4px 10px rgba(0,0,0,0.1);
+}
+.vg-css-donut::before {
+    content: "";
+    width: 150px; height: 150px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+/* =========================================
+   AGGRESSIVE MOBILE RESPONSIVENESS
+   ========================================= */
+@media (max-width: 1024px) {
+    .vg-middle-row, .vg-bottom-row {
+        grid-template-columns: 1fr; /* Stack everything on tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .vg-dashboard {
+        gap: 1.2rem;
+    }
+    
+    .vg-kpi-row {
+        grid-template-columns: 1fr; /* Stack KPIs on mobile */
+        gap: 1.2rem;
+    }
+
+    .vg-card {
+        padding: 1.5rem !important; /* Reduce padding slightly for small screens */
+        border-radius: 20px !important;
+    }
+
+    .vg-kpi-value {
+        font-size: 2.8rem;
+    }
+
+    .vg-css-donut {
+        width: 180px; height: 180px;
+    }
+    .vg-css-donut::before {
+        width: 120px; height: 120px;
+    }
+    
+    /* Ensure the recent orders table stays edge-to-edge inside the new heavy card */
+    .admin-table-container {
+        margin-left: -1.5rem !important;
+        margin-right: -1.5rem !important;
+        width: calc(100% + 3rem) !important;
+    }
+}
+
+#admin-root .action-btn {
+    background: transparent;
+    border: 1px solid #e5e5e5;
+    padding: 0.65rem 1.1rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: #111;
+    text-decoration: none;
+    transition: all 0.28s ease;
+    font-family: 'Manrope', sans-serif;
+    min-width: 90px;
+}
+
+/* EDIT BUTTON */
+#admin-root .edit-btn {
+    background: #fff;
+    color: #111;
+}
+
+#admin-root .edit-btn:hover {
+    background: #000;
+    color: #fff;
+    border-color: #000;
+}
+
+/* DELETE BUTTON */
+#admin-root .delete-btn {
+    background: #fff;
+    color: #b42318 !important;
+    border-color: #f1d5d2;
+}
+
+#admin-root .delete-btn:hover {
+    background: #b42318;
+    color: #fff !important;
+    border-color: #b42318;
+}
+
+/* CLICK EFFECT */
+#admin-root .action-btn:active {
+    transform: scale(0.97);
+}
