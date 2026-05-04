@@ -1,16 +1,14 @@
-v# version removed (obsolete)
+version: '3.8'
 
 services:
-  app:
-    platform: ["linux/amd64","linux/arm64"]
-    build:
-      context: .
-      args:
-        - VITE_SUPABASE_URL=${VITE_SUPABASE_URL}
-        - VITE_SUPABASE_ANON_KEY=${VITE_SUPABASE_ANON_KEY}
+  storefront:
+    # This pulls your automatically built image from Docker Hub
+    image: pranith023/vito-ginglies:latest
+    container_name: vito_storefront
     ports:
-      - "8080:80"
-    environment:
-      - VITE_SUPABASE_URL=${VITE_SUPABASE_URL:-}
-      - VITE_SUPABASE_ANON_KEY=${VITE_SUPABASE_ANON_KEY:-}
+      # Maps your laptop's port 3000 to the container's unprivileged Nginx port 8080
+      - "3000:8080"
+    # This tells Docker to securely inject the keys from your hidden file
+    env_file:
+      - .env
     restart: unless-stopped
