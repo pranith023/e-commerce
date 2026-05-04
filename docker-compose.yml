@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   storefront:
+    platform: linux/amd64
     # This pulls your automatically built image from Docker Hub
     image: pranith023/vito-ginglies:latest
     container_name: vito_storefront
