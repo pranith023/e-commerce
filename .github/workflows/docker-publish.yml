@@ -28,4 +28,4 @@ jobs:
           context: .
           push: true
           # Replace 'vito-ginglies' with your actual Docker Hub repository name if it's different
-          tags: ${{ secrets.pranith023 }}/vito-ginglies:latest
+          tags: pranith023/vito-ginglies:latest 
