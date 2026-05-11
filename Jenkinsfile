@@ -36,7 +36,7 @@ pipeline {
                 sh '''
                 docker stop clothing-store-container || true
                 docker rm clothing-store-container || true
-                docker run -d -p 3000:3000 --name clothing-store-container clothing-store
+                docker run -d -p 3000:8080 --name clothing-store-container clothing-store
                 '''
             }
         }
